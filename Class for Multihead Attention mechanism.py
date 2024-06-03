@@ -52,3 +52,12 @@ class MultiheadAttention(nn.Module):
         print(f"out.size(): {out.size()}")  # Debug print of final output size
         
         return out  # Return the final output
+
+input_dim=1024
+d_model=512
+num_heads=8
+batch_size=30
+sequence_length=5
+x = torch.randn((batch_size,sequence_length, input_dim))
+model = MultiheadAttention(input_dim, d_model, num_heads)
+out = model.forward(x)
